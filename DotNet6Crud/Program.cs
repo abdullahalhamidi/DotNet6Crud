@@ -1,7 +1,22 @@
+using DotNet6Crud.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+/*
+IConfiguration configuration = new ConfigurationBuilder()
+    .AddJsonFile("DefaultConnection")
+    .Build();
+builder.Services.AddDbContext<ApplicationDbContext>(option=>option.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+*/
+
+
+builder.Services.AddDbContext<ApplicationDbContext>(options=>
+options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
 var app = builder.Build();
 

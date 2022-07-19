@@ -7,6 +7,10 @@ namespace DotNet6Crud.Models
         [Key]
         public int Id { get; set; }
         public string Borrower { get; set; }
+        public string BorrowedItem { get; set; }
+        public int DaysBorrowed { get; set; }
+        public DateTime BorrowedDate { get; set; }
+        public DateTime ItemReturnDate { get; set; }
 
     }
 }
