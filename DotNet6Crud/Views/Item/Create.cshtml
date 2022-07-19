@@ -1,0 +1,28 @@
+﻿@model DotNet6Crud.Models.Item
+
+<form method="post" asp-action="Create">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label asp-for="Borrower"></label>
+      <input asp-for="Borrower" type="text" class="form-control" id="inputName" placeholder="Mike Santos">
+    </div>
+    <div class="form-group col-md-6">
+      <label asp-for="BorrowedItem"></label>
+      <input asp-for="BorrowedItem" type="text" class="form-control" id="inputItem" placeholder="Pressure Washer">
+    </div>
+      <div class="form-group col-md-6">
+        <label asp-for="DaysBorrowed"></label>
+        <input asp-for="DaysBorrowed" type="text" class="form-control" id="inputDaysBorrowed" placeholder="4">
+      </div>
+      <div class="form-group col-md-6">
+        <label asp-for="BorrowedDate"></label>
+        <input asp-for="BorrowedDate" type="text" class="form-control" id="date" placeholder="MM/DD/YYY">
+      </div>
+       <div class="form-group col-md-6">
+        <label asp-for="ItemReturnDate"></label>
+        <input asp-for="ItemReturnDate" type="text" class="form-control" id="date1" placeholder="MM/DD/YYY">
+      </div>
+  </div>
+  <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Borrow Item</button>
+  <button asp-action="Index" type="submit" class="btn btn-secondary" style="margin-top: 20px;">Back To Items</button>
+</form>
