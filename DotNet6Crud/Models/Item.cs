@@ -10,13 +10,17 @@ namespace DotNet6Crud.Models
         [DisplayName("Borrower Name")]
         public string Borrower { get; set; }
         [DisplayName("Borrower Item Name")]
-        public string BorrowedItem { get; set; }
-        [DisplayName("Days Item Borrowed")]
-        public int DaysBorrowed { get; set; }
+        public string ItemBorrowed { get; set; }
+        [DisplayName("Item Borrowed Price")]
+        public int ItemBorrowedPrice { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [DisplayName("Date Borrowed")]
-        public DateTime BorrowedDate { get; set; }
+        public DateTime? BorrowedDate { get; set; }
+
         [DisplayName("Return Date")]
-        public DateTime ItemReturnDate { get ; set; }
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        public DateTime? ItemReturnDate { get ; set; }
 
     }
 }

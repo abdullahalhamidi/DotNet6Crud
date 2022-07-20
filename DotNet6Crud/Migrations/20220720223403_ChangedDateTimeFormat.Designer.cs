@@ -4,6 +4,7 @@ using DotNet6Crud.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DotNet6Crud.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220720223403_ChangedDateTimeFormat")]
+    partial class ChangedDateTimeFormat
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -54,7 +56,7 @@ namespace DotNet6Crud.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<DateTime?>("BorrowedDate")
+                    b.Property<DateTime>("BorrowedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Borrower")
@@ -68,7 +70,7 @@ namespace DotNet6Crud.Migrations
                     b.Property<int>("ItemBorrowedPrice")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("ItemReturnDate")
+                    b.Property<DateTime>("ItemReturnDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
