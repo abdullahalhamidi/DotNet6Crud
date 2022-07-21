@@ -2,8 +2,6 @@
 <DotNet6Crud.Models.Item>
 <div class="container px-4">
     <a method="post" asp-controller="Item" asp-action="Create" type="button" class="btn btn-primary" style="margin-bottom: 20px; margin-right: 5px;">Borrow Item</a>
-    <a class="btn btn-dark" style="margin-bottom: 20px; margin-right: 5px">Edit Information</a>
-    <a class="btn btn-danger" style="margin-bottom: 20px; margin-right: 5px;">Delete Item</a>
    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
       @if(Model.Count() > 0)
       {
@@ -15,10 +13,13 @@
             <div class="card-body">
                <h5 class="card-title">@item.Borrower</h5>
                <p class="card-text">Item Price: $@item.ItemBorrowedPrice</p>
-               <p class="card-text">Borrowed Date: @item.BorrowedDate</p>
-               <p class="card-text">Return Date: @item.ItemReturnDate</p>
+               <p class="card-text">Borrowed Date: @Html.DisplayFor(modelItem => item.BorrowedDate )</p>
+               <p class="card-text">Return Date: @Html.DisplayFor(modelItem => item.ItemReturnDate )</p>
             </div>
+            <a method="post" asp-controller="Item" asp-action="Edit" type="button" class="btn btn-primary" style="margin-bottom: 20px; margin-right: 5px;">Edit Item</a>
+            <a class="btn btn-danger" style="margin-bottom: 5px; margin-right: 5px;">Delete Item</a>
          </div>
+
       </div>
       }
       }

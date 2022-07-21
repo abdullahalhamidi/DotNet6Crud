@@ -33,5 +33,24 @@ namespace DotNet6Crud.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public IActionResult Edit()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Edit(int id = 0)
+        {
+            if(id == 0) 
+            { 
+                return View(); 
+            } 
+            else
+            {
+                return View(_db.Items.Find(id));
+            }
+        }
+
     }
 }

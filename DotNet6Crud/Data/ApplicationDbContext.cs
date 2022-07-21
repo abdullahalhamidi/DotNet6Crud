@@ -10,7 +10,6 @@ namespace DotNet6Crud.Data
 
         }
         public DbSet<Item> Items { get; set; }
-        public DbSet<Appointment> Appointments { get; set; }
 
     }
 }
