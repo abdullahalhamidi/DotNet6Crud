@@ -29,28 +29,75 @@ namespace DotNet6Crud.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Item obj)
         {
-            _db.Items.Add(obj);
-            _db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        public IActionResult Edit()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Edit(int id = 0)
-        {
-            if(id == 0) 
-            { 
-                return View(); 
-            } 
-            else
+            if (ModelState.IsValid)
             {
-                return View(_db.Items.Find(id));
+                _db.Items.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
             }
+            return View(obj);
         }
 
+
+
+        // Get Delete
+        public IActionResult Delete(int? id)
+        {
+            if (id == null || id == 0 )
+            {
+                return NotFound();
+            }
+            var obj = _db.Items.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            return View(obj);
+        }
+
+
+        // Post Delete
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeletePost(int? id)
+        {
+            var obj = _db.Items.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            _db.Items.Remove(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Index"); 
+        }
+
+
+        // Get Update
+        public IActionResult Update(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            var obj = _db.Items.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            return View(obj);
+        }
+
+        // Post Update
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Update(Item obj)
+        {
+
+                _db.Items.Update(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+                return View(obj);
+        }
     }
 }

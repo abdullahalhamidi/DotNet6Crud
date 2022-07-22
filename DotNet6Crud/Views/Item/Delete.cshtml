@@ -1,0 +1,29 @@
+﻿@model DotNet6Crud.Models.Item
+
+<form method="post" asp-action="DeletePost">
+<input asp-for="Id" hidden/>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label asp-for="Borrower"></label>
+      <input asp-for="Borrower" type="text" disabled class="form-control" id="inputName" placeholder="Mike Santos">
+    </div>
+    <div class="form-group col-md-6">
+      <label asp-for="ItemBorrowed"></label>
+      <input asp-for="ItemBorrowed" type="text" disabled class="form-control" id="inputItem" placeholder="Pressure Washer">
+    </div>
+      <div class="form-group col-md-6">
+        <label asp-for="ItemBorrowedPrice"></label>
+        <input asp-for="ItemBorrowedPrice" type="text" disabled class="form-control" id="inputDaysBorrowed" placeholder="4">
+      </div>
+      <div class="form-group col-md-6">
+        <label asp-for="BorrowedDate"></label>
+        <input asp-for="BorrowedDate" type="text" disabled class="form-control" id="date" placeholder="MM/DD/YYY">
+      </div>
+       <div class="form-group col-md-6">
+        <label asp-for="ItemReturnDate"></label>
+        <input asp-for="ItemReturnDate" type="text" disabled class="form-control" id="date1" placeholder="MM/DD/YYY">
+      </div>
+  </div>
+  <button asp-action="DeletePost" type="submit" class="btn btn-danger" style="margin-top: 20px;">Delete Item</button>
+  <button asp-action="Index" type="submit" class="btn btn-success" style="margin-top: 20px;">Back To Items</button>
+</form>

@@ -8,10 +8,14 @@ namespace DotNet6Crud.Models
         [Key]
         public int Id { get; set; }
         [DisplayName("Borrower Name")]
+        [Required]
         public string Borrower { get; set; }
         [DisplayName("Borrower Item Name")]
+        [Required]
         public string ItemBorrowed { get; set; }
         [DisplayName("Item Borrowed Price")]
+        [Required]
+        [Range(1, int.MaxValue, ErrorMessage ="Amount Must be greater than 0!")]
         public int ItemBorrowedPrice { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]

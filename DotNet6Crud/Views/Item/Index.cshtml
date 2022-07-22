@@ -16,8 +16,8 @@
                <p class="card-text">Borrowed Date: @Html.DisplayFor(modelItem => item.BorrowedDate )</p>
                <p class="card-text">Return Date: @Html.DisplayFor(modelItem => item.ItemReturnDate )</p>
             </div>
-            <a method="post" asp-controller="Item" asp-action="Edit" type="button" class="btn btn-primary" style="margin-bottom: 20px; margin-right: 5px;">Edit Item</a>
-            <a class="btn btn-danger" style="margin-bottom: 5px; margin-right: 5px;">Delete Item</a>
+            <a asp-controller="Item" asp-action="Update" asp-route-id="@item.Id" type="button" class="btn btn-primary" style="margin-bottom: 20px; margin-right: 5px;">Edit Item</a>
+            <a asp-controller="Item" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger" style="margin-bottom: 5px; margin-right: 5px;">Delete Item</a>
          </div>
 
       </div>

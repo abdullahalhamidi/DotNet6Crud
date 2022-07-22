@@ -1,18 +1,22 @@
 ﻿@model DotNet6Crud.Models.Item
 
 <form method="post" asp-action="Create">
+  <div asp-validation-summary="All" class="text-danger"></div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label asp-for="Borrower"></label>
       <input asp-for="Borrower" type="text" class="form-control" id="inputName" placeholder="Mike Santos">
+      <span asp-validation-for="Borrower" class="text-danger"></span>
     </div>
     <div class="form-group col-md-6">
       <label asp-for="ItemBorrowed"></label>
       <input asp-for="ItemBorrowed" type="text" class="form-control" id="inputItem" placeholder="Pressure Washer">
+      <span asp-validation-for="ItemBorrowed" class="text-danger"></span>
     </div>
       <div class="form-group col-md-6">
         <label asp-for="ItemBorrowedPrice"></label>
         <input asp-for="ItemBorrowedPrice" type="text" class="form-control" id="inputDaysBorrowed" placeholder="4">
+        <span asp-validation-for="ItemBorrowedPrice" class="text-danger"></span>
       </div>
       <div class="form-group col-md-6">
         <label asp-for="BorrowedDate"></label>
@@ -23,6 +27,6 @@
         <input asp-for="ItemReturnDate" type="text" class="form-control" id="date1" placeholder="MM/DD/YYY">
       </div>
   </div>
-  <button type="submit" class="btn btn-dark" style="margin-top: 20px;">Borrow Item</button>
-  <button asp-action="Index" type="submit" class="btn btn-secondary" style="margin-top: 20px;">Back To Items</button>
+  <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Borrow Item</button>
+  <button asp-action="Index" type="submit" class="btn btn-dark" style="margin-top: 20px;">Back To Items</button>
 </form>
